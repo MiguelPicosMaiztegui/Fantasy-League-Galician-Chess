@@ -1,2 +1,3 @@
-# WebScrapping
-This repository is created to help on building databases from information stored in web pages
+# Fantasy League Galician Chess
+This repository is created to build a database of past results of the Galician chess league 
+Moreover, to create a Fantasy League with this data
