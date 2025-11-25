@@ -12,19 +12,33 @@ CREATE TABLE IF NOT EXISTS players (
     surnames TEXT NOT NULL,
     equipo TEXT,
     puntos INTEGER,
-    valor_mercado REAL
+    valor_mercado REAL,
+    UNIQUE(id_player)
+)
+""")
+# Crear tabla jugadores
+cursor.execute("""
+CREATE TABLE IF NOT EXISTS teams (
+    id_team INTEGER,
+    name TEXT NOT NULL,
+    division TEXT,
+    puntos INTEGER,
+    valor_mercado REAL,
+    UNIQUE(id_team)
 )
 """)
 
 # Crear tabla encuentros
 cursor.execute("""
 CREATE TABLE IF NOT EXISTS matches (
+    team_id TEXT,
     team_name TEXT,
     enemy_team TEXT,
     division TEXT,
     year INTEGER,
     round INTEGER,
-    result INTEGER
+    result INTEGER,
+    UNIQUE(team_id, year, round)
 )
 """)
 
@@ -34,12 +48,14 @@ CREATE TABLE IF NOT EXISTS games (
     id_player INTEGER,
     name TEXT,
     surnames TEXT,
+    team_name TEXT,
     division TEXT,
     year INTEGER,
     round INTEGER,
     board INTEGER,
     game_result INTEGER,
-    match_result INTEGER
+    match_result INTEGER,
+    UNIQUE(id_player, year, round)
 )
 """)
 
