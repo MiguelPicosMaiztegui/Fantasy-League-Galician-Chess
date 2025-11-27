@@ -31,14 +31,13 @@ CREATE TABLE IF NOT EXISTS teams (
 # Crear tabla encuentros
 cursor.execute("""
 CREATE TABLE IF NOT EXISTS matches (
-    team_id TEXT,
     team_name TEXT,
     enemy_team TEXT,
     division TEXT,
     year INTEGER,
     round INTEGER,
     result INTEGER,
-    UNIQUE(team_id, year, round)
+    UNIQUE(team_name, year, round)
 )
 """)
 
