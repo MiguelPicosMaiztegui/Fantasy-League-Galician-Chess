@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Fantasy Chess</title>
+</head>
+<body>
+    <nav>
+        <a href="/">Inicio</a>
+        {% if user.is_authenticated %}
+            <a href="/protected/">Zona Privada</a>
+            <a href="/logout/">Logout</a>
+        {% else %}
+            <a href="/register/">Registro</a>
+            <a href="/login/">Login</a>
+        {% endif %}
+    </nav>
+    <hr>
+    {% block content %}{% endblock %}
+</body>
+</html>
