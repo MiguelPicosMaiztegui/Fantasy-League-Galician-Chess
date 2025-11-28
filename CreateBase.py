@@ -11,8 +11,9 @@ CREATE TABLE IF NOT EXISTS players (
     name TEXT NOT NULL,
     surnames TEXT NOT NULL,
     equipo TEXT,
-    puntos INTEGER,
-    valor_mercado REAL,
+    media_fantasy_actual REAL DEFAULT 0,
+    media_fantasy_previous REAL DEFAULT 0,
+    valor_mercado REAL DEFAULT 0,
     UNIQUE(id_player)
 )
 """)
@@ -22,8 +23,9 @@ CREATE TABLE IF NOT EXISTS teams (
     id_team INTEGER,
     name TEXT NOT NULL,
     division TEXT,
-    puntos INTEGER,
-    valor_mercado REAL,
+    media_fantasy_actual REAL DEFAULT 0,
+    media_fantasy_previous REAL DEFAULT 0,
+    valor_mercado REAL DEFAULT 0,
     UNIQUE(id_team)
 )
 """)
@@ -37,6 +39,7 @@ CREATE TABLE IF NOT EXISTS matches (
     year INTEGER,
     round INTEGER,
     result INTEGER,
+    fantasy_points INTEGER DEFAULT 0,
     UNIQUE(team_name, year, round)
 )
 """)
@@ -54,6 +57,7 @@ CREATE TABLE IF NOT EXISTS games (
     board INTEGER,
     game_result INTEGER,
     match_result INTEGER,
+    fantasy_points INTEGER DEFAULT 0,
     UNIQUE(id_player, year, round)
 )
 """)

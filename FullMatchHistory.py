@@ -78,6 +78,8 @@ for sel_year in years:
                         continue
                     team_name = columnas[1].text
                     resultraw = columnas[2].text
+                    if resultraw == '-':
+                        continue
                     result = int(2*float(resultraw.split()[0].strip()))
                     result2 = int(2*float(resultraw.split()[2].strip()))
                     enemy_team= columnas[3].text
